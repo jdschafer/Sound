@@ -7,8 +7,14 @@
  */
 
 public class SortedList {
+    protected int[] array;
+    protected final int DEFCAP = 100;
     
     public SortedList() {
-        
+        array = new int[DEFCAP];
+    }
+    
+    public SortedList(int initSize) {
+        array = new int[initSize];
     }
 }

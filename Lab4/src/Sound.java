@@ -13,8 +13,8 @@ public class Sound {
     
     public Sound() {
         gen = new SoundGenerator();
-        unsortedList = new UnsortedList();
-        sortedList = new SortedList();
+        unsortedList = new UnsortedList(20);
+        sortedList = new SortedList(20);
     }
     
     public static void main(String[] args) {

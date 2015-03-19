@@ -7,8 +7,15 @@
  */
 
 public class UnsortedList {
+    protected int[] array;
+    protected final int DEFCAP = 100;
     
     public UnsortedList() {
-        
+        array = new int[DEFCAP];
     }
+    
+    public UnsortedList(int initSize) {
+        array = new int[initSize];
+    }
+    
 }
