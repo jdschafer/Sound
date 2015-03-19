@@ -6,9 +6,9 @@
  *@included     N/A
  */
 
-public class UnsortedList {
+public class SortedList {
     
-    public UnsortedList() {
+    public SortedList() {
         
     }
 }
