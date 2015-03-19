@@ -6,16 +6,31 @@
  *@included     N/A
  */
 
-public class UnsortedList {
-    protected int[] array;
-    protected final int DEFCAP = 100;
+public class UnsortedList extends List {
     
     public UnsortedList() {
-        array = new int[DEFCAP];
+        super();
     }
     
     public UnsortedList(int initSize) {
-        array = new int[initSize];
+        super(initSize);
+    }
+    
+    public void add(Object element) {
+        if(numElements == list.length)
+            enlarge();
+        list[numElements] = element;
+        numElements++;
+    }
+    
+    public boolean remove(Object element) {
+        find(element);
+        if(found) {
+            list[location] = list[numElements - 1];
+            list[numElements - 1] = null;
+            numElements--;
+        }
+        return found;
     }
     
 }

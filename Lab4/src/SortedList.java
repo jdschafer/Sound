@@ -6,15 +6,40 @@
  *@included     N/A
  */
 
-public class SortedList {
-    protected int[] array;
-    protected final int DEFCAP = 100;
+public class SortedList extends List {
     
     public SortedList() {
-        array = new int[DEFCAP];
+        super();
     }
     
     public SortedList(int initSize) {
-        array = new int[initSize];
+        super(initSize);
+    }
+    
+    public void add(Comparable element) {
+        Comparable listElement;
+        int location = 0;
+        boolean moreToSearch;
+        
+        if(numElements == list.length)
+            enlarge();
+        
+        moreToSearch = (numElements > 0);
+        
+        while(moreToSearch) {
+            listElement = (Comparable)list[location];
+            if(listElement.compareTo(element) < 0) {
+                location++;
+                moreToSearch = (location < numElements);
+            }
+            else
+                moreToSearch = false;
+        }
+        
+        for(int index = numElements; index > location; index--)
+            list[index] = list[index - 1];
+        
+        list[location] = element;
+        numElements++;
     }
 }
