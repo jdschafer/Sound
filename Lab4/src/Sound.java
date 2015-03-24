@@ -8,14 +8,9 @@
 
 public class Sound {
     private static SoundGenerator gen;
-    private static UnsortedList unsortedList;
+    private UnsortedList unsortedList;
     private SortedList sortedList;
     private static Sound sound;
-    //Int variables for each upper range to use as indexes
-    private static Integer range10, range20, range30, range40, range50, range60, range70,
-    			range80, range90, range100, range110, range120, range130,
-    			range140, range150, range160, range170, range180, range190,
-    			range200;
     
     public Sound() {
         gen = new SoundGenerator();
@@ -25,12 +20,20 @@ public class Sound {
     
     public static void main(String[] args) {
         sound = new Sound();
-        handleNum();
+        sound.run();
         
+    }
+    
+    private void run() {
+        for(int i = 0; i < 200; i++) {
+            handleNum();
+            
+        }
     }
     
     private static void handleNum() {
     	int incoming = gen.getRandom();
-    	unsortedList.add();
+    	int lowInc = (incoming/10) * 10;
+    	
     }
 }
