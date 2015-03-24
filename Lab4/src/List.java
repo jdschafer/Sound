@@ -1,3 +1,10 @@
+/*@author       Justin Schafer
+ *@id           jdschafer
+ *@course       CSIS 252
+ *@assignment   Sound Lab 4
+ *@related      Sound.java, SortedList.java, UnsortedList.java
+ *@included     N/A
+ */
 
 public class List {
     protected final int DEFCAP = 100;
@@ -19,6 +26,7 @@ public class List {
         this.origCap = origCap;
     }
     
+    //Increases the size of the list of we hit capacity
     protected void enlarge() {
         Object[] larger = new Object[list.length + origCap];
         
@@ -29,6 +37,7 @@ public class List {
         list = larger;
     }
     
+    //Searches for an object and then saves it's index under location
     protected void find(Object target) {
         boolean moreToSearch;
         location = 0;
@@ -44,15 +53,19 @@ public class List {
         }
     }
     
+    //Returns the number of elements in the list
     public int size() {
         return numElements;
     }
     
+    //Returns true if the list contains the object and false if not
     public boolean contains(Object element) {
         find(element);
         return found;
     }
     
+    //Removes the desired object from the list and returns true if done and
+    //false if not
     public boolean remove(Object element) {
         find(element);
         if(found) {
@@ -64,6 +77,7 @@ public class List {
         return found;
     }
     
+    //Returns a string of the contents in the list
     public String toString() {
         String listString = "List:\n";
         for(int i = 0; i < numElements; i++)
@@ -71,10 +85,12 @@ public class List {
         return listString;
     }
     
+    //Resets the current position counter used in the getNext method
     public void reset() {
         currentPos = 0;
     }
     
+    //Returns the next object in the list
     public Object getNext() {
         Object next = list[currentPos];
         if(currentPos == (numElements - 1))

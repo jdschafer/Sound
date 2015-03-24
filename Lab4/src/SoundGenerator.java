@@ -12,7 +12,7 @@ public class SoundGenerator {
     
     //Generates a random number between 0 and 200 then returns it
     protected int getRandom() {
-        random = (int)(Math.random()) * 200;
+        random = (int)(Math.random() * 200);
         return random;
     }
 }

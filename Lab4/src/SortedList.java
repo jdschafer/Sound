@@ -2,7 +2,7 @@
  *@id           jdschafer
  *@course       CSIS 252
  *@assignment   Sound Lab 4
- *@related      Sound.java
+ *@related      Sound.java, List.java
  *@included     N/A
  */
 
@@ -16,6 +16,8 @@ public class SortedList extends List {
         super(initSize);
     }
     
+    //Adds the comparable element into the last after finding where it
+    //fits into the sorted scheme
     public void add(Comparable element) {
         Comparable listElement;
         int location = 0;
