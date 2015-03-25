@@ -23,22 +23,29 @@ public class Range {
         high = low + (SIZE - 1);
     }
     
-    private int getCount() {
+    //Returns the number of elements in this range
+    protected int getCount() {
         return count;
     }
     
-    private void addCount(int more) {
+    //Adds the int passed to the method into the number of contents
+    protected void addCount(int more) {
         count += more;
     }
     
-    private int getHigh() {
+    //Returns the higher boundary
+    protected int getHigh() {
         return high;
     }
     
-    private int getLow() {
+    //Returns the lower boundary
+    protected int getLow() {
         return low;
     }
     
+    //Returns 0 if the ranges are equal
+    //Returns 1 if this range is higher than the parameter
+    //Returns -1 if this range is lower than the parameter
     public int compareTo(Range inc) {
         if(this.equals(inc))
             return 0;
@@ -48,8 +55,16 @@ public class Range {
             return -1;
     }
     
+    //Returns true if the ranges are equal, returns false otherwise
     public boolean equals(Range inc) {
         return(this.getLow() == inc.getLow() && 
                this.getHigh() == inc.getHigh());
+    }
+    
+    //Returns a string containing the upper bound, lower bound,
+    //and number of contents
+    public String toString() {
+        return ("lower bound: " + low + "\nupper bound: " + high + 
+                "\nnumber of contents: " + count);
     }
 }

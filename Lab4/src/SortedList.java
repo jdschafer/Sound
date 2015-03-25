@@ -16,10 +16,10 @@ public class SortedList extends List {
         super(initSize);
     }
     
-    //Adds the comparable element into the last after finding where it
+    //Adds the comparable element into the list after finding where it
     //fits into the sorted scheme
-    public void add(Comparable element) {
-        Comparable listElement;
+    public void add(Range element) {
+        Range listElement;
         int location = 0;
         boolean moreToSearch;
         
@@ -29,13 +29,16 @@ public class SortedList extends List {
         moreToSearch = (numElements > 0);
         
         while(moreToSearch) {
-            listElement = (Comparable)list[location];
+            listElement = (Range)list[location];
             if(listElement.compareTo(element) < 0) {
                 location++;
                 moreToSearch = (location < numElements);
+                compares++;
             }
-            else
+            else {
                 moreToSearch = false;
+                compares++;
+            }
         }
         
         for(int index = numElements; index > location; index--)

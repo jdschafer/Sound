@@ -12,6 +12,7 @@ public class List {
     protected Object[] list;
     protected int numElements = 0;
     protected int currentPos;
+    protected int compares;
     
     protected boolean found;
     protected int location;
@@ -19,14 +20,16 @@ public class List {
     public List() {
         list = new Object[DEFCAP];
         origCap = DEFCAP;
+        compares = 0;
     }
     
     public List(int origCap) {
         list = new Object[origCap];
         this.origCap = origCap;
+        compares = 0;
     }
     
-    //Increases the size of the list of we hit capacity
+    //Increases the size of the list if it hits capacity
     protected void enlarge() {
         Object[] larger = new Object[list.length + origCap];
         
@@ -44,11 +47,14 @@ public class List {
         found = false;
         moreToSearch = (location < numElements);
         while (moreToSearch && !found) {
-            if(list[location].equals(target))
+            if(((Range)list[location]).equals((Range)target)) {
                 found = true;
+                compares++;
+            }
             else {
                 location++;
                 moreToSearch = (location < numElements);
+                compares++;
             }
         }
     }
@@ -81,7 +87,7 @@ public class List {
     public String toString() {
         String listString = "List:\n";
         for(int i = 0; i < numElements; i++)
-            listString = listString + " " + list[i] + "\n";
+            listString = listString + list[i] + "\n";
         return listString;
     }
     
