@@ -65,7 +65,6 @@ public class Sound {
     //Generates the random number and then adds it to the sorted list
     private void handleNumSr() {
         int incoming = gen.getRandom();
-        int lowInc = (incoming/10) * 10;
         Range range = new Range(incoming);
         range.addCount(1);
         
